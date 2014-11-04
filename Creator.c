@@ -34,7 +34,10 @@ int exeptions(int argc){
 			printf("\nВсего вариантов ответа %d, а вы ввели ответ %d\n\n",atoi(args[3]),atoi(args[i]));
 			exit(1);
 		}
-	
+	if (atoi(args[1]) < 3 || atoi(args[2]) < 3) {
+		printf("\nРазмер ячейки не может быть меньше 3х\n\n");
+		exit(1);
+	}
 }
 
 int prisv(){
