@@ -6,6 +6,12 @@ int tbl[1000][1000];
 int x,y,h,g,i,j;
 char *args[100];
 
+void exeptions(int argc);
+void prisv();
+void tblconstruct();
+void setmrk(int vpr, int otv);
+void tblshow();
+
 int main(int argc, char *argv[]){
 	int k;
 	
@@ -20,7 +26,7 @@ int main(int argc, char *argv[]){
 	tblshow();
 }
 
-int exeptions(int argc){
+void exeptions(int argc){
 	if (argc == 1) {
 		printf("\nПравило заполнения аргументов: (ширина ячейки) (высота ячейки) (количество столбцов) (количество строк) (ответы)\n\n");
 		exit(1);
@@ -29,7 +35,7 @@ int exeptions(int argc){
 		printf("\nВсего вопросов %d, а вы ввели %d ответов\n\n",atoi(args[4]),argc-5);
 		exit(1);
 	}
-	for (i=5;i<argc-1;i++) //НЕ ПРОВЕРЯЕТ ПОСЛЕДНИЙ АРГУМЕНТ
+	for (i=5;i<argc-1;i++) //НЕ ПРОВЕРЯЕТ ПОСЛЕДНИЙ АРГУМЕНТ (КАКОГО ТО ХРЕНА)
 		if (atoi(args[3]) < atoi(args[i]) || atoi(args[i]) < 1){
 			printf("\nВсего вариантов ответа %d, а вы ввели ответ %d\n\n",atoi(args[3]),atoi(args[i]));
 			exit(1);
@@ -40,14 +46,14 @@ int exeptions(int argc){
 	}
 }
 
-int prisv(){
+void prisv(){
 	h=atoi(args[1]);
 	g=atoi(args[2]);
 	x=(atoi(args[1])+1)*atoi(args[3])+1;
 	y=(atoi(args[2])+1)*atoi(args[4])+1;
 }
 
-int tblconstruct(){
+void tblconstruct(){
 	for (i=1;i<y+1;i=i+g+1)
 		for (j=1;j<x+1;j++)
 			tbl[i][j]=1;
@@ -57,7 +63,7 @@ int tblconstruct(){
 			tbl[i][j]=1;
 }
 
-int setmrk(int vpr, int otv){
+void setmrk(int vpr, int otv){
 	int m,n;
 	m=3+((h+1)*(otv-1));
 	n=3+((g+1)*(vpr-1));
@@ -66,7 +72,7 @@ int setmrk(int vpr, int otv){
 			tbl[n+i][m+j]=1;
 }
 
-int tblshow(){
+void tblshow(){
 	printf("P1\n");
 	printf("%d %d\n",x,y);
 	for (i=1;i<y+1;i++){
