@@ -35,7 +35,7 @@ void exeptions(int argc){
 		printf("\nВсего вопросов %d, а вы ввели %d ответов\n\n",atoi(args[4]),argc-5);
 		exit(1);
 	}
-	for (i=5;i<argc-1;i++) //НЕ ПРОВЕРЯЕТ ПОСЛЕДНИЙ АРГУМЕНТ (КАКОГО ТО ХРЕНА)
+	for (i=5;i<argc-1;i++) //НЕ ПРОВЕРЯЕТ ПОСЛЕДНИЙ АРГУМЕНТ
 		if (atoi(args[3]) < atoi(args[i]) || atoi(args[i]) < 1){
 			printf("\nВсего вариантов ответа %d, а вы ввели ответ %d\n\n",atoi(args[3]),atoi(args[i]));
 			exit(1);
