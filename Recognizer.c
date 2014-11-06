@@ -20,8 +20,7 @@ int main(int argc, char *argv[]){
 	recognize();
 	chekmark();
 	otvprint();
-	//tblshow(y,x); Функция для прочерки правильности построения таблицы
-	//printf("%d\n",tbl[((1+h)/2+1)+(1+h)*(1-1)][((1+g)/2+1)+(1+g)*(2-1)]);
+	//tblshow(y,x); Функция для проверки правильности прочтения и построения таблицы
 }
 
 void tblbuild(){
