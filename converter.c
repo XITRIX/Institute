@@ -3,12 +3,12 @@
 #include <string.h>
 
 FILE *file;
-char ch[100][1000];
-int cr[100][100];
-int cg[100][100];
-int cb[100][100];
-int gs[100][100];
-int bw[100][100];
+char ch[1000][10000];
+int cr[1000][1000];
+int cg[1000][1000];
+int cb[1000][1000];
+int gs[1000][1000];
+int bw[1000][1000];
 int g,h,i,j; // длинна, высота, дл¤ счЄта
 
 void recognize(); //считывание строк
