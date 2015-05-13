@@ -1,0 +1,2 @@
+all:
+  g++ OpenGL.cpp -o OpenGL -lglut -lGL -lGLU -lGLEW
