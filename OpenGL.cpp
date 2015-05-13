@@ -4,13 +4,18 @@
 #include <GLUT/GLUT.h>
 #endif
 
+void counter();
 void reshape(int w, int h);
 void display();
+int arg[6], he;
 int main (int argc, char * argv[])
 {
+	for(int i=1;i<argc;i++){
+		arg[i]=atoi(argv[i]);	
+	}
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGBA);
-    glutInitWindowSize(800, 600);
+    glutInitWindowSize(atoi(argv[1]), atoi(argv[2]));
     glutCreateWindow("OpenGL laba");
        
     glutReshapeFunc(reshape);
@@ -23,6 +28,10 @@ int main (int argc, char * argv[])
 
 void reshape(int w, int h)
 {
+	arg[1]=w;
+	arg[2]=h;
+	he=arg[2]/(arg[3]+1);
+
     glViewport(0, 0, w, h);
        
     glMatrixMode(GL_PROJECTION);
@@ -38,18 +47,26 @@ void display()
     glClear(GL_COLOR_BUFFER_BIT);
 	
     glBegin(GL_QUADS);
-    glColor3f(1.0, 1.0, 1.0);
-    glVertex2i(0, 1000);
+    glColor3f(1.0, 0.0, 0.0);
+    glVertex2i(0, arg[2]);
     glVertex2i(0, 0);
-    glVertex2i(1000, 0);
-    glVertex2i(1000, 1000);
+    glVertex2i(arg[1], 0);
+    glVertex2i(arg[1], arg[2]);
     glEnd();
 	
-	for(int i=0;i<10;i++){
+    glBegin(GL_QUADS);
+    glColor3f(1.0, 1.0, 1.0);
+    glVertex2i(0+2, arg[2]-2);
+    glVertex2i(0+2, 0+2);
+    glVertex2i(arg[1]-2, 0+2);
+    glVertex2i(arg[1]-2, arg[2]-2);
+    glEnd();
+	
+	for(int i=0;i<arg[3];i++){
 		glBegin(GL_LINES);
 		glColor3f(0, 0, 0);
-		glVertex2i(250, 450-(25*i));
-		glVertex2i(550, 450-(25*i));
+		glVertex2i((arg[1]/2)-(arg[4]/2), he+(he*i));
+		glVertex2i((arg[1]/2)+(arg[4]/2), he+(he*i));
 		glEnd();
        }
 
