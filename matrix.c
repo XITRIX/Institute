@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 	recognize();
 	show();
 	mainloop();
+	return;
 }
 
 void recognize()
