@@ -62,7 +62,7 @@ void mainloop(){
 		if (atoi(q)==1) erazer();
 		else if (atoi(q)==2) changer();
 		else if (atoi(q)==3) controll();
-		else if (atoi(q)==4) exit(0);
+		else if (atoi(q)==4) return;
 		else if (!atoi(q) || atoi(q)>4) printf("Ошибка: такого пункта меню не существует\n\n");
 		show();
 	}
