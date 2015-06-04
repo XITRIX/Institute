@@ -12,6 +12,7 @@ void mainloop();
 void erazer();
 void changer();
 void controll();
+void matrixfind();
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +21,6 @@ int main(int argc, char *argv[])
 	recognize();
 	show();
 	mainloop();
-	return;
 }
 
 void recognize()
@@ -58,12 +58,13 @@ void show(){
 void mainloop(){
 	for(;;){
 		char q[5];
-		printf("Введите:\n 1 - что бы очистить матрицу\n 2 - что бы поменять размер матрицы\n 3 - что бы управлять значениями матрицы\n 4 - что бы выйти из программы\n\n");
+		printf("Введите:\n 1 - что бы очистить матрицу\n 2 - что бы поменять размер матрицы\n 3 - что бы управлять значениями матрицы\n 4 - что бы запустить программу #4\n 5 - что бы выйти из программы\n\n");
 		scanf("%s",q);
 		if (atoi(q)==1) erazer();
 		else if (atoi(q)==2) changer();
 		else if (atoi(q)==3) controll();
-		else if (atoi(q)==4) return;
+		else if (atoi(q)==4) matrixfind;
+		else if (atoi(q)==5) exit(0);
 		else if (!atoi(q) || atoi(q)>4) printf("Ошибка: такого пункта меню не существует\n\n");
 		show();
 	}
@@ -91,7 +92,7 @@ void changer(){
 }
 
 void controll(){
-	char x[5],y[5],q[5];
+	char x[5],y[5],q[10];
 	printf("Введите ячейку матрицы по X: ");
 	scanf("%s",x);
 	if (!atoi(x) || atoi(x)<1 || atoi(x)>cr[0][1]){printf("Ошибка: нарушена граница матрицы\n\n");return;}
@@ -104,4 +105,11 @@ void controll(){
 	if (!atoi(q)){printf("Ошибка: новое значение должно быть циферным\n\n");return;}
 	cr[atoi(y)][atoi(x)]=atoi(q);
 	printf("Значение ячейки успешно изменено\n\n");
+}
+
+void matrixfind(){
+	int a=cr[1][1];
+	char b[10];
+	printf("Введите число B\n");
+	scanf("%s",b);
 }
